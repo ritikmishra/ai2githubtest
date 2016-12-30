@@ -1,0 +1,616 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="procedures_defnoreturn" id="1" x="62" y="-751">
+    <mutation></mutation>
+    <field name="NAME">prepare</field>
+    <statement name="STACK">
+      <block type="controls_if" id="2" inline="false">
+        <value name="IF0">
+          <block type="math_compare" id="3" inline="true">
+            <field name="OP">GT</field>
+            <value name="A">
+              <block type="lexical_variable_get" id="4">
+                <field name="VAR">global index</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="lists_length" id="5" inline="false">
+                <value name="LIST">
+                  <block type="lexical_variable_get" id="6">
+                    <field name="VAR">global questions</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="lexical_variable_set" id="7" inline="false">
+            <field name="VAR">global index</field>
+            <value name="VALUE">
+              <block type="math_number" id="8">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <next>
+          <block type="component_set_get" id="9" inline="false">
+            <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="QuestionNum"></mutation>
+            <field name="COMPONENT_SELECTOR">QuestionNum</field>
+            <field name="PROP">Text</field>
+            <value name="VALUE">
+              <block type="text_join" id="10" inline="false">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <block type="text" id="11">
+                    <field name="TEXT">Question </field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="lexical_variable_get" id="12">
+                    <field name="VAR">global index</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="component_set_get" id="13" inline="false">
+                <mutation component_type="Image" set_or_get="set" property_name="Picture" is_generic="false" instance_name="Image1"></mutation>
+                <field name="COMPONENT_SELECTOR">Image1</field>
+                <field name="PROP">Picture</field>
+                <value name="VALUE">
+                  <block type="lists_select_item" id="14" inline="false">
+                    <value name="LIST">
+                      <block type="lexical_variable_get" id="15">
+                        <field name="VAR">global images</field>
+                      </block>
+                    </value>
+                    <value name="NUM">
+                      <block type="lexical_variable_get" id="16">
+                        <field name="VAR">global index</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="component_set_get" id="17" inline="false">
+                    <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="QuestionText"></mutation>
+                    <field name="COMPONENT_SELECTOR">QuestionText</field>
+                    <field name="PROP">Text</field>
+                    <value name="VALUE">
+                      <block type="lists_select_item" id="18" inline="false">
+                        <value name="LIST">
+                          <block type="lexical_variable_get" id="19">
+                            <field name="VAR">global questions</field>
+                          </block>
+                        </value>
+                        <value name="NUM">
+                          <block type="lexical_variable_get" id="20">
+                            <field name="VAR">global index</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="component_set_get" id="21" inline="false">
+                        <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="correct"></mutation>
+                        <field name="COMPONENT_SELECTOR">correct</field>
+                        <field name="PROP">Text</field>
+                        <value name="VALUE">
+                          <block type="text_join" id="22" inline="false">
+                            <mutation items="2"></mutation>
+                            <value name="ADD0">
+                              <block type="text" id="23">
+                                <field name="TEXT">Correct: </field>
+                              </block>
+                            </value>
+                            <value name="ADD1">
+                              <block type="lexical_variable_get" id="24">
+                                <field name="VAR">global correct</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="component_set_get" id="25" inline="false">
+                            <mutation component_type="Spinner" set_or_get="set" property_name="Elements" is_generic="false" instance_name="Spinner1"></mutation>
+                            <field name="COMPONENT_SELECTOR">Spinner1</field>
+                            <field name="PROP">Elements</field>
+                            <value name="VALUE">
+                              <block type="lists_select_item" id="26" inline="false">
+                                <value name="LIST">
+                                  <block type="lexical_variable_get" id="27">
+                                    <field name="VAR">global potentialanswers</field>
+                                  </block>
+                                </value>
+                                <value name="NUM">
+                                  <block type="lexical_variable_get" id="28">
+                                    <field name="VAR">global index</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="global_declaration" id="29" inline="false" x="508" y="-234">
+    <field name="NAME">answers</field>
+    <value name="VALUE">
+      <block type="lists_create_with" id="30" inline="false">
+        <mutation items="4"></mutation>
+        <value name="ADD0">
+          <block type="text" id="31">
+            <field name="TEXT">React JS</field>
+          </block>
+        </value>
+        <value name="ADD1">
+          <block type="text" id="32">
+            <field name="TEXT">Vue JS</field>
+          </block>
+        </value>
+        <value name="ADD2">
+          <block type="text" id="33">
+            <field name="TEXT">Angular JS</field>
+          </block>
+        </value>
+        <value name="ADD3">
+          <block type="text" id="34">
+            <field name="TEXT">Meteor JS</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="global_declaration" id="35" inline="false" x="1225" y="-234">
+    <field name="NAME">images</field>
+    <value name="VALUE">
+      <block type="lists_create_with" id="36" inline="false">
+        <mutation items="4"></mutation>
+        <value name="ADD0">
+          <block type="text" id="37">
+            <field name="TEXT">react.png</field>
+          </block>
+        </value>
+        <value name="ADD1">
+          <block type="text" id="38">
+            <field name="TEXT">vue.png</field>
+          </block>
+        </value>
+        <value name="ADD2">
+          <block type="text" id="39">
+            <field name="TEXT">angular.png</field>
+          </block>
+        </value>
+        <value name="ADD3">
+          <block type="text" id="40">
+            <field name="TEXT">meteor.png</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="global_declaration" id="41" inline="false" x="38" y="-105">
+    <field name="NAME">correctQuestions</field>
+    <value name="VALUE">
+      <block type="lists_create_with" id="42" inline="false">
+        <mutation items="4"></mutation>
+        <value name="ADD0">
+          <block type="logic_false" id="43">
+            <field name="BOOL">FALSE</field>
+          </block>
+        </value>
+        <value name="ADD1">
+          <block type="logic_false" id="44">
+            <field name="BOOL">FALSE</field>
+          </block>
+        </value>
+        <value name="ADD2">
+          <block type="logic_false" id="45">
+            <field name="BOOL">FALSE</field>
+          </block>
+        </value>
+        <value name="ADD3">
+          <block type="logic_false" id="46">
+            <field name="BOOL">FALSE</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="component_event" id="47" x="557" y="-117">
+    <mutation component_type="Button" instance_name="Submit" event_name="Click"></mutation>
+    <field name="COMPONENT_SELECTOR">Submit</field>
+    <statement name="DO">
+      <block type="controls_if" id="48" inline="false">
+        <mutation elseif="1" else="1"></mutation>
+        <value name="IF0">
+          <block type="logic_compare" id="49" inline="true">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="component_set_get" id="50">
+                <mutation component_type="Spinner" set_or_get="get" property_name="Selection" is_generic="false" instance_name="Spinner1"></mutation>
+                <field name="COMPONENT_SELECTOR">Spinner1</field>
+                <field name="PROP">Selection</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="text" id="51">
+                <field name="TEXT"></field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="component_set_get" id="52" inline="false">
+            <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="correct"></mutation>
+            <field name="COMPONENT_SELECTOR">correct</field>
+            <field name="PROP">Text</field>
+            <value name="VALUE">
+              <block type="text" id="53">
+                <field name="TEXT">Try selecting an answer again.</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <value name="IF1">
+          <block type="logic_compare" id="54" inline="true">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="component_set_get" id="55">
+                <mutation component_type="Spinner" set_or_get="get" property_name="Selection" is_generic="false" instance_name="Spinner1"></mutation>
+                <field name="COMPONENT_SELECTOR">Spinner1</field>
+                <field name="PROP">Selection</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="lists_select_item" id="56" inline="false">
+                <value name="LIST">
+                  <block type="lexical_variable_get" id="57">
+                    <field name="VAR">global answers</field>
+                  </block>
+                </value>
+                <value name="NUM">
+                  <block type="lexical_variable_get" id="58">
+                    <field name="VAR">global index</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO1">
+          <block type="component_set_get" id="59" inline="false">
+            <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="result"></mutation>
+            <field name="COMPONENT_SELECTOR">result</field>
+            <field name="PROP">Text</field>
+            <value name="VALUE">
+              <block type="text" id="60">
+                <field name="TEXT">Correct</field>
+              </block>
+            </value>
+            <next>
+              <block type="component_method" id="61" inline="false">
+                <mutation component_type="TextToSpeech" method_name="Speak" is_generic="false" instance_name="TextToSpeech1"></mutation>
+                <field name="COMPONENT_SELECTOR">TextToSpeech1</field>
+                <value name="ARG0">
+                  <block type="text" id="62">
+                    <field name="TEXT">Correct</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="controls_if" id="63" inline="false">
+                    <value name="IF0">
+                      <block type="logic_negate" id="64" inline="false">
+                        <value name="BOOL">
+                          <block type="lists_select_item" id="65" inline="false">
+                            <value name="LIST">
+                              <block type="lexical_variable_get" id="66">
+                                <field name="VAR">global correctQuestions</field>
+                              </block>
+                            </value>
+                            <value name="NUM">
+                              <block type="lexical_variable_get" id="67">
+                                <field name="VAR">global index</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="lists_replace_item" id="68" inline="false">
+                        <value name="LIST">
+                          <block type="lexical_variable_get" id="69">
+                            <field name="VAR">global correctQuestions</field>
+                          </block>
+                        </value>
+                        <value name="NUM">
+                          <block type="lexical_variable_get" id="70">
+                            <field name="VAR">global index</field>
+                          </block>
+                        </value>
+                        <value name="ITEM">
+                          <block type="logic_boolean" id="71">
+                            <field name="BOOL">TRUE</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="lexical_variable_set" id="72" inline="false">
+                            <field name="VAR">global correct</field>
+                            <value name="VALUE">
+                              <block type="math_add" id="73" inline="true">
+                                <mutation items="2"></mutation>
+                                <value name="NUM0">
+                                  <block type="lexical_variable_get" id="74">
+                                    <field name="VAR">global correct</field>
+                                  </block>
+                                </value>
+                                <value name="NUM1">
+                                  <block type="math_number" id="75">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="component_set_get" id="76" inline="false">
+                                <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="correct"></mutation>
+                                <field name="COMPONENT_SELECTOR">correct</field>
+                                <field name="PROP">Text</field>
+                                <value name="VALUE">
+                                  <block type="text_join" id="77" inline="false">
+                                    <mutation items="2"></mutation>
+                                    <value name="ADD0">
+                                      <block type="text" id="78">
+                                        <field name="TEXT">Correct: </field>
+                                      </block>
+                                    </value>
+                                    <value name="ADD1">
+                                      <block type="lexical_variable_get" id="79">
+                                        <field name="VAR">global correct</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="component_set_get" id="80" inline="false">
+            <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="result"></mutation>
+            <field name="COMPONENT_SELECTOR">result</field>
+            <field name="PROP">Text</field>
+            <value name="VALUE">
+              <block type="text" id="81">
+                <field name="TEXT">Wrong</field>
+              </block>
+            </value>
+            <next>
+              <block type="component_method" id="82" inline="false">
+                <mutation component_type="TextToSpeech" method_name="Speak" is_generic="false" instance_name="TextToSpeech1"></mutation>
+                <field name="COMPONENT_SELECTOR">TextToSpeech1</field>
+                <value name="ARG0">
+                  <block type="text" id="83">
+                    <field name="TEXT">Wrong</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="global_declaration" id="84" inline="false" x="1310" y="86">
+    <field name="NAME">potentialanswers</field>
+    <value name="VALUE">
+      <block type="lists_create_with" id="85" inline="false">
+        <mutation items="4"></mutation>
+        <value name="ADD0">
+          <block type="lists_create_with" id="86" inline="false">
+            <mutation items="4"></mutation>
+            <value name="ADD0">
+              <block type="text" id="87">
+                <field name="TEXT">React JS</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="text" id="88">
+                <field name="TEXT">Express JS</field>
+              </block>
+            </value>
+            <value name="ADD2">
+              <block type="text" id="89">
+                <field name="TEXT">Pygame</field>
+              </block>
+            </value>
+            <value name="ADD3">
+              <block type="text" id="90">
+                <field name="TEXT">NLP-Compromise</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="ADD1">
+          <block type="lists_create_with" id="91" inline="false">
+            <mutation items="4"></mutation>
+            <value name="ADD0">
+              <block type="text" id="92">
+                <field name="TEXT">Kivy</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="text" id="93">
+                <field name="TEXT">Vue JS</field>
+              </block>
+            </value>
+            <value name="ADD2">
+              <block type="text" id="94">
+                <field name="TEXT">Angular JS</field>
+              </block>
+            </value>
+            <value name="ADD3">
+              <block type="text" id="95">
+                <field name="TEXT">Ionic</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="ADD2">
+          <block type="lists_create_with" id="96" inline="false">
+            <mutation items="4"></mutation>
+            <value name="ADD0">
+              <block type="text" id="97">
+                <field name="TEXT">Cordova</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="text" id="98">
+                <field name="TEXT">nlp-compromise</field>
+              </block>
+            </value>
+            <value name="ADD2">
+              <block type="text" id="99">
+                <field name="TEXT">Retire.js</field>
+              </block>
+            </value>
+            <value name="ADD3">
+              <block type="text" id="100">
+                <field name="TEXT">Angular JS</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="ADD3">
+          <block type="lists_create_with" id="101" inline="false">
+            <mutation items="4"></mutation>
+            <value name="ADD0">
+              <block type="text" id="102">
+                <field name="TEXT">Vue JS</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="text" id="103">
+                <field name="TEXT">Swing</field>
+              </block>
+            </value>
+            <value name="ADD2">
+              <block type="text" id="104">
+                <field name="TEXT">Meteor JS</field>
+              </block>
+            </value>
+            <value name="ADD3">
+              <block type="text" id="105">
+                <field name="TEXT">React JS</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="component_event" id="106" x="-185" y="475">
+    <mutation component_type="Form" instance_name="Screen1" event_name="Initialize"></mutation>
+    <field name="COMPONENT_SELECTOR">Screen1</field>
+    <statement name="DO">
+      <block type="procedures_callnoreturn" id="107">
+        <mutation name="prepare"></mutation>
+        <field name="PROCNAME">prepare</field>
+      </block>
+    </statement>
+  </block>
+  <block type="global_declaration" id="108" inline="false" x="-144" y="489">
+    <field name="NAME">questions</field>
+    <value name="VALUE">
+      <block type="lists_create_with" id="109" inline="false">
+        <mutation items="4"></mutation>
+        <value name="ADD0">
+          <block type="text" id="110">
+            <field name="TEXT">This is the logo of which javascript library?</field>
+          </block>
+        </value>
+        <value name="ADD1">
+          <block type="text" id="111">
+            <field name="TEXT">This is the logo of which javascript library?</field>
+          </block>
+        </value>
+        <value name="ADD2">
+          <block type="text" id="112">
+            <field name="TEXT">This is the logo of which javascript library?</field>
+          </block>
+        </value>
+        <value name="ADD3">
+          <block type="text" id="113">
+            <field name="TEXT">This is the logo of which javascript library?</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="component_event" id="114" x="505" y="508">
+    <mutation component_type="Button" instance_name="Next" event_name="Click"></mutation>
+    <field name="COMPONENT_SELECTOR">Next</field>
+    <statement name="DO">
+      <block type="lexical_variable_set" id="115" inline="false">
+        <field name="VAR">global index</field>
+        <value name="VALUE">
+          <block type="math_add" id="116" inline="true">
+            <mutation items="2"></mutation>
+            <value name="NUM0">
+              <block type="lexical_variable_get" id="117">
+                <field name="VAR">global index</field>
+              </block>
+            </value>
+            <value name="NUM1">
+              <block type="math_number" id="118">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="procedures_callnoreturn" id="119">
+            <mutation name="prepare"></mutation>
+            <field name="PROCNAME">prepare</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="global_declaration" id="120" inline="false" x="139" y="530">
+    <field name="NAME">index</field>
+    <value name="VALUE">
+      <block type="math_number" id="121">
+        <field name="NUM">1</field>
+      </block>
+    </value>
+  </block>
+  <block type="global_declaration" id="122" inline="false" x="-185" y="565">
+    <field name="NAME">correct</field>
+    <value name="VALUE">
+      <block type="math_number" id="123">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+  </block>
+  <yacodeblocks ya-version="158" language-version="20"></yacodeblocks>
+</xml>
